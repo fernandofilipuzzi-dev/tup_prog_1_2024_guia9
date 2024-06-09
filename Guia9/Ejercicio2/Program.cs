@@ -42,12 +42,15 @@ namespace Ejercicio2_GenerarNumerosPrimos
         {
             Console.WriteLine("Generar un listado de números primos");
 
-            Console.Write("Ingrese un número entero: ");
-            int numero = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Desde: ");
+            int desde = Convert.ToInt32(Console.ReadLine());
+            Console.Write(" Hasta: ");
+            int hasta = Convert.ToInt32(Console.ReadLine());
+
             Console.Write("\n");
 
-            Console.WriteLine($"Algoritmo recursivo: Secuencia de números primos de 1 hasta {numero} es: ");
-            for (int n = 1; n <= numero; n++)
+            Console.WriteLine($"Algoritmo recursivo: Secuencia de números primos de {desde} hasta {hasta} es: ");
+            for (int n = desde; n <= hasta; n++)
             {
                 if (EsPrimoRecursivo(n)==true)
                 {
@@ -55,8 +58,8 @@ namespace Ejercicio2_GenerarNumerosPrimos
                 }
             }
 
-            Console.WriteLine($"\n\nAlgorimo iterativo: Secuencia de números primos de 1 hasta {numero} es: ");
-            for (int n = 1; n <= numero; n++)
+            Console.WriteLine($"\n\nAlgorimo iterativo: Secuencia de números primos de {desde} hasta {hasta} es: ");
+            for (int n = desde; n <= hasta; n++)
             {
                 if (EsPrimoIterativo(n) == true)
                 {
