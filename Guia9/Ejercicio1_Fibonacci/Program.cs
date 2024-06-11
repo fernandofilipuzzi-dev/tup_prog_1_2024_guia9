@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,13 +27,41 @@ namespace Ejercicio1_Fibonacci
             return resultado;
         }
 
+        static int Fibonacci_Recursivo(int numero)
+        {
+            if (numero <= 1)
+            {
+                return 1;
+            }
+            else
+            {
+                return Fibonacci_Recursivo(numero - 1) + Fibonacci_Recursivo(numero - 2);
+            }
+        }
 
         static void Main(string[] args)
         {
-            for (int n = 0; n < 23; n++)
+            Console.WriteLine("Generar un listado de números primos");
+
+            Console.Write("Desde: ");
+            int desde = Convert.ToInt32(Console.ReadLine());
+            Console.Write(" Hasta: ");
+            int hasta = Convert.ToInt32(Console.ReadLine());
+
+            Console.Write("\n");
+
+            Console.WriteLine($"Algoritmo recursivo:  {desde} hasta {hasta} es: ");
+            for (int n = desde; n <= hasta; n++)
             {
-                Console.WriteLine("{0}", Fibonacci_Iterativo(n));
+                Console.Write($"{Fibonacci_Iterativo(n)} - ");
             }
+
+            Console.WriteLine($"\n\nAlgorimo iterativo:  {desde} hasta {hasta} es: ");
+            for (int n = desde; n <= hasta; n++)
+            {
+                Console.Write($"{Fibonacci_Recursivo(n)} - ");
+            }
+
             Console.ReadKey();
         }
     }
